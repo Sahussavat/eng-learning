@@ -1,0 +1,49 @@
+
+.bg {
+    background-color: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.question_box {
+    margin: 7%;
+    text-align: center;
+    display: block;
+    font-family: MM_KANUN;
+    width: 30%;
+}
+
+.question_text {
+    font-size: 70px;
+    color: wheat;
+}
+
+.question {
+    margin-bottom: 3%;
+}
+
+.choices {
+    margin-bottom: 10%;
+    color: wheat;
+    font-size: 30px;
+}
+
+.choice_btn {
+    width: 100%;
+    text-align: left;
+}
+
+.choice_type {
+    text-align: right;
+}
+
+.choice_des {
+    text-align: left;
+}
+
+.hight_score_text {
+    font-size: 30px;
+    color: wheat;
+}
