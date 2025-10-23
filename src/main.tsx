@@ -8,7 +8,7 @@ import ResultPage from './components/result_page/ResultPage.tsx'
 import ChoicesPage from './components/choice_page/ChoicesPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <>
             <Router>
                 <Routes>
                     <Route
@@ -29,5 +29,5 @@ createRoot(document.getElementById('root')!).render(
                     />
                 </Routes>
             </Router>
-  </StrictMode>,
+  </>,
 )

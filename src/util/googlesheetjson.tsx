@@ -31,7 +31,7 @@ export class GoogleSheetJSON {
     private s_str : string
     private e_str : string
 
-    constructor(gid : string, option : Option, s_str = "H", e_str = "K"){ 
+    constructor(gid : string, option : Option, s_str = "C", e_str = "C"){ 
         this.gid = gid
         this.option = option
         this.s_str = s_str

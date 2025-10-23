@@ -12,7 +12,7 @@
     text-align: center;
     display: block;
     font-family: MM_KANUN;
-    width: 30%;
+    width: 80%;
 }
 
 .question_text {
@@ -28,6 +28,34 @@
     margin-bottom: 10%;
     color: wheat;
     font-size: 30px;
+    height: 250px;
+    max-height: 250px;
+    position: relative;
+    font-size: small;
+}
+
+.iframe_window {
+    width: 100%;
+    height: 100%;
+}
+
+.hiding_box {
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: brown;
+}
+
+.give_up_btn {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .choice_btn {
