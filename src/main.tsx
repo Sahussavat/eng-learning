@@ -1,15 +1,14 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import MainPage from './components/main_page/MainPage.tsx'
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ResultPage from './components/result_page/ResultPage.tsx'
-import ChoicesPage from './components/choice_page/ChoicesPage.tsx'
+import GuessPage from './components/choice_page/GuessPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <>
-            <Router>
+            <Router basename="/eng-learning">
                 <Routes>
                     <Route
                         path="/"
@@ -20,8 +19,8 @@ createRoot(document.getElementById('root')!).render(
                         element={<ResultPage />}
                     />
                     <Route
-                        path="/choices"
-                        element={<ChoicesPage />}
+                        path="/guess"
+                        element={<GuessPage />}
                     />
                     <Route
                         path="*"

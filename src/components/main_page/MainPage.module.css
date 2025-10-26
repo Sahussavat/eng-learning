@@ -7,6 +7,11 @@
     height: 100vh;
 }
 
+.btns {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
 .start_box {
     margin: 7%;
     text-align: center;
@@ -26,4 +31,8 @@
 .hight_score_text {
     font-size: 30px;
     color: wheat;
+}
+
+.hide {
+    display: none;
 }

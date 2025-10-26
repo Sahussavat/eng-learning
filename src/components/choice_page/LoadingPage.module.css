@@ -1,0 +1,11 @@
+
+.loading_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading_spinner {
+    width: 150px;
+    height: 150px;
+}

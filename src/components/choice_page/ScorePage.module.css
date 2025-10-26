@@ -1,0 +1,12 @@
+
+.score_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body {
+    font-size: 60px;
+    font-family: MM_KANUN;
+    color: wheat;
+}
