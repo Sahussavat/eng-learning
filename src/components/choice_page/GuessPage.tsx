@@ -4,11 +4,12 @@ import guessPageCss from './GuessPage.module.css'
 import loadingPageCss from './LoadingPage.module.css'
 import scorePageCss from './ScorePage.module.css'
 import { useEffect, useRef, useState } from 'react';
-import { Spinner, Tab, Tabs } from 'react-bootstrap';
+import { Col, Container, Row, Spinner, Tab, Tabs } from 'react-bootstrap';
 import { GuessSystem } from '../global/GuessSystem';
 import { Constant } from '../global/constant';
 import type { Data } from '../../util/googlesheetjson';
 import { Score } from '../global/Score';
+import { confirm } from '../confirm/CustomConfirm';
 
 function GuessPage() {
     const Page = {
@@ -127,6 +128,25 @@ function GuessPage() {
             </Spinner>
         </div>
         <div className={(current_page === Page.Guess ? guessPageCss.question_box : guessPageCss.hide)}>
+            <Container>
+                <Row>
+                    <Col>
+
+                    </Col>
+                    <Col>
+                    </Col>
+                    <Col className={guessPageCss.retry_box}>
+                    <Button variant="primary" size='lg' onClick={async()=>{
+                            let res = await confirm({message: 'ต้องการจะเริ่มใหม่หรือไม่?'})
+                            if(res){
+                                (new GuessSystem).continue_reset();
+                                (new Score).score_reset_current_score();
+                                window.location.reload()
+                            }
+                        }}>ลองใหม่</Button>
+                    </Col>
+                </Row>
+            </Container>
             <div className={guessPageCss.count_readed_word}>
                 <p className={guessPageCss.readed_text}>{readed_word} / {max_words}</p>
             </div>
@@ -164,14 +184,14 @@ function GuessPage() {
         <div className={(current_page === Page.Score ? scorePageCss.score_box : guessPageCss.hide)}>
             <div className={scorePageCss.body}>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>Highest Correct Percent: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)}%</span></p>
+                    <p>คะแนนสูงสุด: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
                 </div>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>Correct Percent: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)}%</span></p>
+                    <p>คะแนนที่ทำ: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
                 </div>
                 <Button variant="primary" size='lg' onClick={()=>{
                         window.location.reload()
-                    }}>Start Again</Button>
+                    }}>เริ่มใหม่</Button>
             </div>
         </div>
     </div>

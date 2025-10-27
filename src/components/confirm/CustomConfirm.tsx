@@ -10,8 +10,8 @@ const CustomConfirm = ({ show, proceed, message }: ConfirmDialogProps<{ message:
         </Modal.Header>
 
         <Modal.Footer>
-        <Button variant="primary" onClick={() => proceed(true)}>Yes</Button>
-        <Button variant="secondary" onClick={() => proceed(false)}>No</Button>
+        <Button variant="primary" onClick={() => proceed(true)}>ใช่</Button>
+        <Button variant="secondary" onClick={() => proceed(false)}>ไม่</Button>
         </Modal.Footer>
     </Modal>
 );

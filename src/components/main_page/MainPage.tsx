@@ -27,7 +27,7 @@ function MainPage() {
                 </div>
                 <div className={mainPageCss.body}>
                     <div className={mainPageCss.hight_score_text}>
-                        <p>Highest Score: <span>{highest_score} Words</span></p>
+                        <p>คะแนนสูงสุด: <span>{highest_score} คำ</span></p>
                     </div>
                     <div className={mainPageCss.btn_box}>
                     <Container>
@@ -52,7 +52,7 @@ function MainPage() {
                                     navigate('/guess');
                                 }
                                 
-                            }}>Start</Button>
+                            }}>เริ่มใหม่</Button>
                             </Col>
                         </Row>
                     </Container>
