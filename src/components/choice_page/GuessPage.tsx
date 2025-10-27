@@ -164,10 +164,10 @@ function GuessPage() {
         <div className={(current_page === Page.Score ? scorePageCss.score_box : guessPageCss.hide)}>
             <div className={scorePageCss.body}>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>Highest Correct Percent: <span>{highest_score/guessSys.current.get_max_guess()*100}%</span></p>
+                    <p>Highest Correct Percent: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)}%</span></p>
                 </div>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>Correct Percent: <span>{Number(current_score/guessSys.current.get_max_guess()*100)}%</span></p>
+                    <p>Correct Percent: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)}%</span></p>
                 </div>
                 <Button variant="primary" size='lg' onClick={()=>{
                         window.location.reload()

@@ -12,6 +12,12 @@
     margin-right: 3%;
 }
 
+.btn_box {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 3%;
+}
+
 .start_box {
     margin: 7%;
     text-align: center;
