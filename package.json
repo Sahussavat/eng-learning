@@ -2,19 +2,16 @@
   "name": "eng-learning",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/Sahussavat/eng-learning",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build --base=/eng-learning/",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "gh-pages": "^6.3.0",
     "rand-seed": "^3.0.0",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",

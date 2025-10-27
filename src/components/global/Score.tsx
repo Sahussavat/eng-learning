@@ -10,11 +10,15 @@ export class Score {
     }
 
     set_continue(){
-        let save = this.score_load()
-        
-        if(Object.keys(save).length){
-            this.current_score = save.current_score
-            this.highest_score = save.highest_score
+        if(SaveNLoad.is_has_save(SaveNLoad.CONTINUE_SAVE_NAME)){
+            let save = this.score_load()
+            
+            if(Object.keys(save).length){
+                this.current_score = save.current_score
+                this.highest_score = save.highest_score
+            }
+        } else {
+            this.score_reset_current_score()
         }
     }
 

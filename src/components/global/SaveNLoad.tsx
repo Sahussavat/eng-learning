@@ -31,8 +31,9 @@ export class SaveNLoad {
     }
 
     static save(save_name : string, templateSave : TemplateSaveContinue | TemplateSaveHighestScore){
-        
-        (new Cookies).set(save_name, JSON.stringify(templateSave));
+        (new Cookies).set(save_name, JSON.stringify(templateSave), {
+            expires: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+        });
     }
 
     static load(save_name : string){
@@ -46,6 +47,6 @@ export class SaveNLoad {
 
     static is_has_save(save_name : string){
         let data = this.load(save_name)
-        return data && true
+        return Boolean(data && Object.keys(data).length)
     }
 }

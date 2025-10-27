@@ -9,7 +9,6 @@ import { SaveNLoad } from '../global/SaveNLoad';
 
 function MainPage() {
     const navigate = useNavigate();
-    
 
     return (
         <div className={mainPageCss.bg}>
@@ -22,7 +21,7 @@ function MainPage() {
                         <p>Previous Correct Percent: <span>0</span></p>
                     </div>
                     <span className={mainPageCss.btns}>
-                    <Button className={SaveNLoad.is_has_save(SaveNLoad.CONTINUE_SAVE_NAME) ? "":mainPageCss.hide}
+                    <Button className={SaveNLoad.is_has_save(SaveNLoad.CONTINUE_SAVE_NAME) ? "":"d-none"}
                      variant="primary" size='lg' onClick={()=>{
                         navigate('/guess');
                     }}>Continue</Button>

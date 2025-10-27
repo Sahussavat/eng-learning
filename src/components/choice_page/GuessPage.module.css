@@ -5,11 +5,12 @@
     display: flex;
     justify-content: center;
     height: 100vh;
+    overflow: auto;
 }
 
 .question_box {
     margin: 7%;
-    margin-top: 3%;
+    margin-top: 1%;
     text-align: center;
     display: block;
     font-family: MM_KANUN;
@@ -17,12 +18,12 @@
 }
 
 .question_text {
-    font-size: 70px;
+    font-size: 7vw;
     color: wheat;
 }
 
 .question {
-    margin-bottom: 3%;
+    margin-bottom: 1%;
 }
 
 .guess {
@@ -37,7 +38,7 @@
 
 .iframe_window {
     width: 100%;
-    height: 300px;
+    height: 250px;
     border-radius: 10px;
 }
 
@@ -49,7 +50,7 @@
     left:0;
 
     width: 100%;
-    height: 350px;
+    height: 300px;
     position: absolute;
     background-color: brown;
     border-radius: 5px;
@@ -94,7 +95,8 @@
 }
 
 .nextBtn {
-    margin-top: 3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .hide {
