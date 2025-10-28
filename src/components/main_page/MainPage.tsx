@@ -2,10 +2,10 @@
 import Button from 'react-bootstrap/Button';
 import mainPageCss from './MainPage.module.css'
 import { useNavigate } from 'react-router-dom';
-import { GuessSystem } from '../global/GuessSystem';
-import { Score } from '../global/Score';
+import { GuessSystem } from '../choice_page/GuessSystem';
+import { Score } from '../choice_page/Score';
 import { confirm } from '../confirm/CustomConfirm';
-import { SaveNLoad } from '../global/SaveNLoad';
+import { SaveNLoad } from '../choice_page/SaveNLoad';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 

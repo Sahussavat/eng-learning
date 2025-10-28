@@ -6,7 +6,7 @@ export class GuessSystem {
 
     private readonly DEFAULT_CURRENT_I = 0
 
-    private n_in_segment : number = 100
+    private n_in_segment : number = 5
 
     private max_guess : number = 0
     private current_i : number = this.DEFAULT_CURRENT_I

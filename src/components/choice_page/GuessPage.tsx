@@ -5,10 +5,10 @@ import loadingPageCss from './LoadingPage.module.css'
 import scorePageCss from './ScorePage.module.css'
 import { useEffect, useRef, useState } from 'react';
 import { Col, Container, Row, Spinner, Tab, Tabs } from 'react-bootstrap';
-import { GuessSystem } from '../global/GuessSystem';
+import { GuessSystem } from './GuessSystem';
 import { Constant } from '../global/constant';
 import type { Data } from '../../util/googlesheetjson';
-import { Score } from '../global/Score';
+import { Score } from './Score';
 import { confirm } from '../confirm/CustomConfirm';
 
 function GuessPage() {
@@ -25,6 +25,7 @@ function GuessPage() {
     const [word, setWord] = useState<string|null>("Word");
     const [readed_word, setReadedWord] = useState(0);
     const [max_words, setMaxWords] = useState(0);
+    const [show_loading, setShowLoading] = useState(false);
     const hiding_box = useRef(null);
     const is_do_increase_score = useRef(true);
     const words = useRef([] as Data[])
@@ -46,8 +47,10 @@ function GuessPage() {
     }
 
     async function next_segment(){
+        setShowLoading(true)
         await guessSys.current.get_next_data().then((d)=>{
             words.current = d
+            setShowLoading(false)
         })
     }
 
@@ -79,6 +82,13 @@ function GuessPage() {
         }
         return <Tabs defaultActiveKey="1">
                     {hind}
+                    <Tab eventKey={hind.length} title="ค้นหา">
+                        <div className={guessPageCss.iframe_window+" "+guessPageCss.search_google_btn}>
+                            <Button size="lg" onClick={()=>{
+                                window.open("https://www.google.com/search?q="+word+"%20%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%A7%E0%B9%88%E0%B8%B2", "_blank")
+                            }}>กดเพื่อค้นหาผ่าน Google</Button>
+                        </div>
+                    </Tab>
                 </Tabs>
     }
 
@@ -128,25 +138,6 @@ function GuessPage() {
             </Spinner>
         </div>
         <div className={(current_page === Page.Guess ? guessPageCss.question_box : guessPageCss.hide)}>
-            <Container>
-                <Row>
-                    <Col>
-
-                    </Col>
-                    <Col>
-                    </Col>
-                    <Col className={guessPageCss.retry_box}>
-                    <Button variant="primary" size='lg' onClick={async()=>{
-                            let res = await confirm({message: 'ต้องการจะเริ่มใหม่หรือไม่?'})
-                            if(res){
-                                (new GuessSystem).continue_reset();
-                                (new Score).score_reset_current_score();
-                                window.location.reload()
-                            }
-                        }}>ลองใหม่</Button>
-                    </Col>
-                </Row>
-            </Container>
             <div className={guessPageCss.count_readed_word}>
                 <p className={guessPageCss.readed_text}>{readed_word} / {max_words}</p>
             </div>
@@ -164,21 +155,37 @@ function GuessPage() {
                         }}>เฉลย</Button>
                 </div>
                 {generate_hinds()}
-                <Button variant="primary" size='lg' className={guessPageCss.nextBtn}
-                 onClick={async()=>{
-                    if(!is_loading_data.current){
-                        is_loading_data.current = true
-                        if(is_do_increase_score.current){
-                            scoreSys.current.increase_score()
-                            scoreSys.current.set_highest_score(scoreSys.current.get_currnet_score())
-                            scoreSys.current.score_save()
-                        } else {
-                            is_do_increase_score.current = true
-                        }
-                        await set_next_word();
-                        is_loading_data.current = false
-                    }
-                    }}>ต่อไป</Button>
+                <Container className={guessPageCss.nextBtn}>
+                    <Row>
+                        <Col>
+                        <Button variant="secondary" size='lg' onClick={async()=>{
+                                let res = await confirm({message: 'ต้องการจะเริ่มใหม่หรือไม่?'})
+                                if(res){
+                                    (new GuessSystem).continue_reset();
+                                    (new Score).score_reset_current_score();
+                                    window.location.reload()
+                                }
+                            }}>ลองใหม่</Button>
+                        </Col>
+                        <Col>
+                        <Button variant="primary" size='lg'
+                        onClick={async()=>{
+                            if(!is_loading_data.current){
+                                is_loading_data.current = true
+                                if(is_do_increase_score.current){
+                                    scoreSys.current.increase_score()
+                                    scoreSys.current.set_highest_score(scoreSys.current.get_currnet_score())
+                                    scoreSys.current.score_save()
+                                } else {
+                                    is_do_increase_score.current = true
+                                }
+                                await set_next_word();
+                                is_loading_data.current = false
+                            }
+                            }}>{show_loading ? "Loading . . ." : "ต่อไป"}</Button>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         </div>    
         <div className={(current_page === Page.Score ? scorePageCss.score_box : guessPageCss.hide)}>
