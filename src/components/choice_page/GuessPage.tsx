@@ -191,10 +191,10 @@ function GuessPage() {
         <div className={(current_page === Page.Score ? scorePageCss.score_box : guessPageCss.hide)}>
             <div className={scorePageCss.body}>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>คะแนนสูงสุด: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
+                    <p>คำที่ไม่ได้กดเฉลยสูงสุด: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
                 </div>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>คะแนนที่ทำ: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
+                    <p>คำที่ไม่ได้กดเฉลยที่ทำ: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
                 </div>
                 <Button variant="primary" size='lg' onClick={()=>{
                         window.location.reload()

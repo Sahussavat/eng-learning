@@ -27,7 +27,7 @@ function MainPage() {
                 </div>
                 <div className={mainPageCss.body}>
                     <div className={mainPageCss.hight_score_text}>
-                        <p>คะแนนสูงสุด: <span>{highest_score} คำ</span></p>
+                        <p>คำที่ไม่ได้กดเฉลยสูงสุด: <span>{highest_score} คำ</span></p>
                     </div>
                     <div className={mainPageCss.btn_box}>
                     <Container>
@@ -35,7 +35,7 @@ function MainPage() {
                             <Col className={SaveNLoad.is_has_save(SaveNLoad.CONTINUE_SAVE_NAME) ? "":mainPageCss.hide}>
                             <Button variant="primary" size='lg' onClick={()=>{
                                 navigate('/guess');
-                            }}>Continue</Button>
+                            }}>เล่นต่อ</Button>
                             </Col>
                             <Col>
                             <Button variant="primary" size='lg' onClick={async()=>{
