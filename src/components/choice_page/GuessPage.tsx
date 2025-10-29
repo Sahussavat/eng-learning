@@ -57,7 +57,7 @@ function GuessPage() {
     async function next_word(is_do_count = true){
         let w : string | null = null
         let index = ((guessSys.current.get_current_i()) % (guessSys.current.get_n_in_segment()))
-        if(!words.current.length || !index){
+        if(!words.current.length || (!index && guessSys.current.get_current_i() < guessSys.current.get_max_guess())){
             if(is_do_count){
                 guessSys.current.reset_seed()
             }
@@ -191,10 +191,10 @@ function GuessPage() {
         <div className={(current_page === Page.Score ? scorePageCss.score_box : guessPageCss.hide)}>
             <div className={scorePageCss.body}>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>คำที่ไม่ได้กดเฉลยสูงสุด: <span>{Number(highest_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
+                    <p>คำที่ไม่ได้กดเฉลยสูงสุด: <span>{highest_score} คำ</span></p>
                 </div>
                 <div className={scorePageCss.hight_score_text}>
-                    <p>คำที่ไม่ได้กดเฉลยที่ทำ: <span>{Number(current_score/guessSys.current.get_max_guess()*100).toFixed(2)} คำ</span></p>
+                    <p>คำที่ไม่ได้กดเฉลยที่ทำ: <span>{current_score} คำ</span></p>
                 </div>
                 <Button variant="primary" size='lg' onClick={()=>{
                         window.location.reload()

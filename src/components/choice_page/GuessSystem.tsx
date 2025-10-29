@@ -49,13 +49,17 @@ export class GuessSystem {
     get_data_by_index(i : number){
         return GoogleSheetJSON.load_data("1SMrtUHsHCzi5tyO_NTIBRTV3LY63QQuk0ZspYtHOkdQ", (n : number)=>{
             this.max_guess = n
-            let start = ((Math.floor(i/(this.n_in_segment))) * this.n_in_segment)+1
-            let end = Math.min(start + this.n_in_segment-1, n + 1)
-            return [start, end]
+            return this.get_start_and_end_i(i, n)
         }, {
             sheet_name : "ชีต1",
             count_col : "D",
         })
+    }
+
+    get_start_and_end_i(i : number, n : number){
+        let start = Math.min(((Math.floor(i/(this.n_in_segment))) * this.n_in_segment)+1, (n) - this.n_in_segment + 1)
+        let end = Math.min(start + this.n_in_segment-1, n)
+        return [ start, end ]
     }
 
     get_seed(){
