@@ -1,4 +1,5 @@
 import { GoogleSheetJSON, type Data } from "../../util/googlesheetjson"
+import { Constant } from "../global/constant"
 import { SaveNLoad } from "./SaveNLoad"
 import Rand from "rand-seed" 
 
@@ -47,12 +48,12 @@ export class GuessSystem {
     }
 
     get_data_by_index(i : number){
-        return GoogleSheetJSON.load_data("1SMrtUHsHCzi5tyO_NTIBRTV3LY63QQuk0ZspYtHOkdQ", (n : number)=>{
+        return GoogleSheetJSON.load_data(Constant.SHEET_ID, (n : number)=>{
             this.max_guess = n
             return this.get_start_and_end_i(i, n)
         }, {
-            sheet_name : "ชีต1",
-            count_col : "D",
+            sheet_name : Constant.SHEET_NAME,
+            count_col : Constant.COUNT_COL,
         })
     }
 
