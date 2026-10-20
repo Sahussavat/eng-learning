@@ -1,16 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import MainPage from './components/main_page/MainPage.tsx'
+import MainPage from './features/main_page/MainPageView.tsx'
 import { Navigate, Route, HashRouter as Router, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GuessPage from './components/choice_page/GuessPage.tsx'
+import GuessPage from './features/guess_page/GuessPageView.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <>
             <Router>
                 <Routes>
                     <Route
-                        path="/"
+                        path="/home"
                         element={<MainPage />}
                     />
                     <Route
@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')!).render(
                     />
                     <Route
                         path="*"
-                        element={<Navigate to="/" />}
+                        element={<Navigate to="/home" />}
                     />
                 </Routes>
             </Router>

@@ -1,7 +1,6 @@
 
 .bg {
     background-color: black;
-    height: 100%;
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -26,7 +25,7 @@
 }
 
 .title_text {
-    font-size: 15vw;
+    font-size: 12vw;
     color: wheat;
 }
 
