@@ -23,7 +23,7 @@ npm install
 First, duplicate this google sheet: https://docs.google.com/spreadsheets/d/1SMrtUHsHCzi5tyO_NTIBRTV3LY63QQuk0ZspYtHOkdQ/edit?usp=sharing. Feel free to add 
 or remove words in column A.
 
-In `src\components\global\constant.tsx` change `SHEET_ID` into your duplicated google sheet url ID.
+In `src\shared\constant.tsx` change `SHEET_ID` into your duplicated google sheet url ID.
 You can find your google sheet ID in https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID
 
 ## Automated Deploy
