@@ -24,7 +24,7 @@ export function HintSectionView(props : { word: string; }){
                     <Tab eventKey={hints.length} title="ค้นหา">
                         <div className={guessPageCss.iframe_window+" "+guessPageCss.search_google_btn}>
                             <Button size="lg" onClick={()=>{
-                                window.open("https://www.google.com/search?q="+hints+"%20%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%A7%E0%B9%88%E0%B8%B2", "_blank")
+                                window.open("https://www.google.com/search?q="+props.word+"%20%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%A7%E0%B9%88%E0%B8%B2", "_blank")
                             }}>กดเพื่อค้นหาผ่าน Google</Button>
                         </div>
                     </Tab>
