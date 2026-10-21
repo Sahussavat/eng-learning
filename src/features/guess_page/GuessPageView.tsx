@@ -14,7 +14,7 @@ function GuessPage() {
         if (vm.page === PAGE.TO_SCORE){
             navigate("/home");
         }
-    }, []);
+    });
     return (
     <div className={guessPageCss.bg}>
         <div className={(vm.page === PAGE.LOADING ? loadingPageCss.loading_box : guessPageCss.hide)}>

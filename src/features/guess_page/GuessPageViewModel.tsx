@@ -41,7 +41,12 @@ export function GuessPageViewModel() {
     async function init_page() {
         setPage(PAGE.LOADING);
         await set_page_data();
-        setPage(PAGE.GUESS_PAGE);
+        if (await is_it_out_words()) {
+            setPage(PAGE.GUESS_PAGE);
+        } else {
+            setPage(PAGE.TO_SCORE);
+        }
+        
     }
 
     async function set_page_data() {
@@ -60,8 +65,7 @@ export function GuessPageViewModel() {
     }
 
     async function do_next_word() {
-        var words_total_count : number = await words_repo.get_all_words_count();
-        if (progress_model.current.get_current_word_i() < words_total_count) {
+        if (await is_it_out_words()) {
             if (!show_hint) {
                 progress_model.current.increase_current_score();
             }
@@ -73,6 +77,11 @@ export function GuessPageViewModel() {
         } else {
             setPage(PAGE.TO_SCORE);
         }
+    }
+
+    async function is_it_out_words() : Promise<boolean> {
+        var words_total_count : number = await words_repo.get_all_words_count();
+        return progress_model.current.get_current_word_i() < words_total_count - 1;
     }
 
     function do_reset() {
