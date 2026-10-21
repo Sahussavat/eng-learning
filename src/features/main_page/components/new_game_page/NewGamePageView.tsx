@@ -2,7 +2,7 @@ import { confirmable, createConfirmation, type ConfirmDialogProps } from 'react-
 import Modal from 'react-bootstrap/Modal';
 import newGameCustomConfirm from './NewGamePage.module.css'
 import { Button } from 'react-bootstrap';
-import type { MainPageViewModel } from '../main_page/MainPageViewModel';
+import type { MainPageViewModel } from '../../MainPageViewModel';
 
 const CustomConfirm = ({ show, proceed, vm }: ConfirmDialogProps<{ vm: MainPageViewModel }, boolean>) => (
   <Modal show={show}>
@@ -11,14 +11,14 @@ const CustomConfirm = ({ show, proceed, vm }: ConfirmDialogProps<{ vm: MainPageV
         </Modal.Header>
         <Modal.Body>
             <div className={newGameCustomConfirm.startAtInputBox}>
-                <div><label>เริ่มที่คำที่</label></div>
-                <div>
+                <div className={newGameCustomConfirm.startAtInputTitle}><label>เริ่มที่คำที่</label></div>
+                <div className={newGameCustomConfirm.startAtInputInput}>
                     <div><input type='number' max={vm.max_words_total}
-                    defaultValue={1}
+                    defaultValue={1} min={1}
                      onChange={vm.set_start_i_input}>
                     </input>
                     </div>
-                    <div>/ {vm.max_words_total}</div>
+                    <div><label className={newGameCustomConfirm.maxCount}>/ {vm.max_words_total}</label></div>
                 </div>
             </div>
         </Modal.Body>

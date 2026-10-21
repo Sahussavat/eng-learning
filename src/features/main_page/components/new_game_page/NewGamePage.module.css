@@ -1,0 +1,37 @@
+
+
+.msg{
+    font-size: 30px;
+    font-family: MM_KANUN;
+}
+
+.startAtInputBox {
+    font-size: 20px;
+    font-family: MM_KANUN;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.startAtInputTitle {
+    display: block;
+    margin-bottom: 2%;
+}
+
+.startAtInputInput {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.startAtInputInput div {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.maxCount {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    width: 90px;
+}

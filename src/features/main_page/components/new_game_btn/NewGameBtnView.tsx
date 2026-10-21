@@ -2,7 +2,7 @@
 import Button from 'react-bootstrap/Button';
 import type { MainPageViewModel } from '../../MainPageViewModel';
 import { useNavigate } from 'react-router-dom';
-import { new_game_confirm } from '../../../new_game_page/NewGamePageView';
+import { new_game_confirm } from '../new_game_page/NewGamePageView';
 
 export function NewGameBtn(props : { vm : MainPageViewModel}) {
     const vm = props.vm;

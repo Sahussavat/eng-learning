@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import mainPageCss from './MainPage.module.css'
 import loadingPageCss from '../../shared/components/loading/loadingComponent.module.css'
 import { Col, Container, Row } from 'react-bootstrap';
-import { NewGameBtn } from './Components/NewGameBtn/NewGameBtnView';
+import { NewGameBtn } from './components/new_game_btn/NewGameBtnView';
 import { MainPageViewModel, PAGE } from './MainPageViewModel';
 import { useNavigate } from 'react-router-dom';
 import { LoadingComponent } from '../../shared/components/loading/loadingComponent';
