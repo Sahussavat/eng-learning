@@ -6,7 +6,8 @@ export class GuessSystem {
         return (Math.floor(current_word_i / TOTAL_WORDS_BEFORE_LOADING) + 1) * TOTAL_WORDS_BEFORE_LOADING;
     }
 
-    public static is_i_still_under_bar(current_word_i : number, current_section_bar : number) : boolean {
-        return current_section_bar > current_word_i;
+    public static is_inbound_bar(current_word_i : number, current_section_bar : number) : boolean {
+        var check_bar : number = this.cal_current_section(current_word_i);
+        return current_section_bar == check_bar;
     }
 }

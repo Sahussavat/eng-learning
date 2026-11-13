@@ -51,7 +51,7 @@ export function GuessPageViewModel() {
 
     async function set_page_data() {
         var current_word_i : number = progress_model.current.get_current_word_i();
-        if (!GuessSystem.is_i_still_under_bar(current_word_i, current_section_bar.current)) {
+        if (!GuessSystem.is_inbound_bar(current_word_i, current_section_bar.current)) {
             setIsWaitLoadData(true);
             words_model.current = await words_repo.get_words_between_index(current_word_i);
             words_model.current.shuffle(progress_model.current.get_current_seed());
